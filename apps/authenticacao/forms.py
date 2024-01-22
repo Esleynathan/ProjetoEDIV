@@ -9,3 +9,17 @@ class UserChangeForm(forms.UserChangeForm):
 class UserCreationForm(forms.UserChangeForm):
     class Meta(forms.UserCreationForm.Meta):
         model = Users
+
+class RegisterForm(UserCreationForm):
+    '''Formulário para cadastro de usuarios sem permissões administrativas'''
+
+    class Meta(UserCreationForm.Meta):
+        fields = ('first_name', 'email')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            print (self.fields["password"])
+            if 'password' in field:
+                self.fields[field].help_text = None
+            self.fields[field].widget.attrs.update({'class': 'form-control'})
