@@ -32,11 +32,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     #MyApps
     'authenticacao',
     'services',
+    'manager',
 
+    # 3 apps
     'tinymce',
 ]
 
