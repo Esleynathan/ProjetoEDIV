@@ -2,6 +2,16 @@
 {% load static %}
 {% block 'body' %}
     <div class="container">
+        <br>
+        <br>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <br>
 
         <form action="{% url 'request_budget' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
             <br>
@@ -9,10 +19,17 @@
             <input type="file" name="file">
             <br>
             <br>
+            <select name="service" class="form-select">
+                {% for service in services %}   
+                    <option value="{{service.0}}"> {{service.1}} </options>                
+                {% endfor %}
+            </select>
+            <br>
+            <br>
             {{HTML_FIELD}}
             <br>
             <br>
-            <input type="submit" value="enviar">
+            <input type="submit" value="Enviar">
         </form>
 
     </div>
