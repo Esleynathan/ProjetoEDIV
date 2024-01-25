@@ -12,6 +12,7 @@ from django.contrib.messages import constants
 from django.urls import reverse
 from .decorators import not_authenticated
 
+from rolepermissions.roles import assign_role
 
 def register(request: HttpRequest) -> HttpResponse:
     if request.method == "GET":

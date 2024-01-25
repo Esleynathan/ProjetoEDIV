@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'manager',
 
     # 3 apps
+    'rolepermissions',
     'tinymce',
 ]
 
@@ -155,3 +156,5 @@ else:
     #TODO: Configurar envio de emails
     pass
 
+# Role permissions
+ROLEPERMISSIONS_MODULE = 'ediv.roles'
